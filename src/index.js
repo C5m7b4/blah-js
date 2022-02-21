@@ -109,3 +109,17 @@ const deleteItem = (id) => {
     buildTable();
   }
 };
+
+const filterData = (property) => {
+  return function (value) {
+    return data.filter((i) => i[property] == value);
+  };
+};
+
+const curriedFilter = filterData('category');
+const fruits = curriedFilter('fruit');
+const bevs = curriedFilter('beverages');
+const candy = curriedFilter('candy');
+console.log('friuts', fruits);
+console.log('bevs', bevs);
+console.log('candy', candy);
